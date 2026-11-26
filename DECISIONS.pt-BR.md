@@ -6,7 +6,8 @@ Este arquivo registra as decisões importantes tomadas durante o desenvolvimento
 
 ## 25/11/2026 — Escolha da stack tecnológica
 
-- **Decisão:** Utilizar Java 21, Spring Boot 4.2.0 e Maven no back-end; JavaScript, React e Vite no front-end. A tecnologia do banco de dados ainda está pendente de decisão final.
+- **Decisão:** Utilizar Java 21, Spring Boot 4.2.0 e Maven no back-end; JavaScript, React e Vite no front-end. O banco de dados escolhido foi o SQLite.
+- - **Justificativa do banco:** O SQLite oferece armazenamento local persistente com configuração mínima, sendo adequado para a demonstração do MVP.
 - **Alternativas consideradas:** Node.js com Express, Python com FastAPI e JavaScript puro, sem React.
 - **Motivo:** Java e Spring Boot já estão configurados e funcionando no projeto. React e Vite oferecem uma maneira organizada e prática de desenvolver o frontend utilizando JavaScript.
 

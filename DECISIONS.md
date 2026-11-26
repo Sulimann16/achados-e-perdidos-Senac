@@ -6,7 +6,8 @@ This file records the important decisions made during the development of the pro
 
 ## 25/11/2026 — Technology stack
 
-- **Decision:** Use Java 21, Spring Boot 4.2.0 and Maven for the back-end; JavaScript, React and Vite for the front-end. The database technology is still pending a final decision.
+- **Decision:** Use Java 21, Spring Boot 4.2.0 and Maven for the back-end; JavaScript, React and Vite for the front-end. The database chosen was SQLite.
+- **Database rationale:** SQLite provides persistent local storage with minimal setup, making it suitable for the MVP demonstration.
 - **Alternatives considered:** Node.js with Express, Python with FastAPI, and plain JavaScript without React.
 - **Rationale:** Java and Spring Boot are already configured and running in the project. React and Vite provide a structured and practical way to build the front-end using JavaScript.
 
