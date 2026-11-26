@@ -2,31 +2,22 @@
 
 [English](DECISIONS.md) · **Português (Brasil)**
 
-Registrem aqui as decisões importantes do time. Cada entrada deve ser curta e trazer o que foi decidido, as alternativas consideradas e o motivo da escolha.
+Este arquivo registra as decisões importantes tomadas durante o desenvolvimento do projeto. As duas versões devem permanecer sincronizadas.
 
-A documentação do projeto deve ser escrita **em inglês** (a versão principal é o [`DECISIONS.md`](DECISIONS.md)), com uma **versão em português** ao lado. Mantenham as duas versões alinhadas.
+## 25/11/2026 — Escolha da stack tecnológica
 
-Mantenham este arquivo na **raiz** do repositório. Incluam uma entrada nova para cada decisão relevante (stack, arquitetura, recorte do MVP, o que ficou de fora, caminhos que vocês tentaram e abandonaram etc.). Este arquivo serve de roteiro para o bloco de decisões da apresentação.
+- **Decisão:** Utilizar Java 21, Spring Boot 4.2.0 e Maven no back-end; JavaScript, React e Vite no front-end. A tecnologia do banco de dados ainda está pendente de decisão final.
+- **Alternativas consideradas:** Node.js com Express, Python com FastAPI e JavaScript puro, sem React.
+- **Motivo:** Java e Spring Boot já estão configurados e funcionando no projeto. React e Vite oferecem uma maneira organizada e prática de desenvolver o frontend utilizando JavaScript.
 
-Copiem o modelo abaixo sempre que precisarem de uma entrada nova.
+## 25/11/2026 — Escopo do MVP
 
-## Modelo
+- **Decisão:** Desenvolver um sistema de achados e perdidos para o campus e a comunidade, com cadastro de objetos encontrados, descrições auxiliadas por IA e revisadas por uma pessoa, registro de objetos perdidos, busca e filtros, manifestações de interesse e atualização do status de devolução.
+- **Alternativas consideradas:** Um sistema menor, limitado ao cadastro de objetos encontrados, ou um sistema mais amplo com serviços adicionais.
+- **Motivo:** O escopo escolhido atende aos requisitos principais do hackathon e pode ser desenvolvido dentro do prazo disponível.
 
-```markdown
-## [data] — [título da decisão]
-- **Decisão:**
-- **Alternativas consideradas:**
-- **Motivo:**
-```
+## 25/11/2026 — Funcionalidades fora do MVP
 
-## 23/11/2026 — Escolha da stack de back-end (exemplo)
-
-- **Decisão:** usar Node.js com Express no back-end.
-- **Alternativas consideradas:** Java com Spring Boot; Python com FastAPI.
-- **Motivo:** o time já tem mais familiaridade com JavaScript, e o prazo de uma semana favorece uma stack na qual todos conseguem contribuir desde o primeiro dia.
-
-## [data] — [título da decisão]
-
-- **Decisão:**
-- **Alternativas consideradas:**
-- **Motivo:**
+- **Decisão:** Não implementar reconhecimento facial, entregas, pagamentos, recompensas, leilões ou funcionalidades de boletim de ocorrência.
+- **Alternativas consideradas:** Adicionar essas funcionalidades como serviços opcionais.
+- **Motivo:** Essas funcionalidades estão fora dos requisitos do desafio e aumentariam a complexidade e os riscos do projeto.
