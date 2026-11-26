@@ -1,0 +1,12 @@
+# Banco de dados local
+*.db
+
+# Configurações do VS Code
+.vscode/
+
+# Backend Java / Maven
+backend/target/
+
+# Frontend React / Node
+frontend/node_modules/
+frontend/dist/
