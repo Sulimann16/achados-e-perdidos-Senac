@@ -26,7 +26,11 @@ public class ItemController {
     }
 
     @GetMapping
-    public List<Item> findAll() {
-        return itemRepository.findAll();
+    public List<Item> findAll(
+        @RequestParam(required = false) String search,
+        @RequestParam(required = false) String location,
+        @RequestParam(required = false) String status) {
+
+    return itemRepository.findAll(search, location, status);
     }
 }

@@ -34,17 +34,36 @@ public class LostItemRepository {
         return item;
     }
 
-    public List<LostItem> findAll() {
-        return jdbcTemplate.query(
-            "SELECT * FROM lost_items ORDER BY id DESC",
-            (rs, rowNum) -> new LostItem(
-                rs.getLong("id"),
-                rs.getString("name"),
-                rs.getString("description"),
-                rs.getString("location"),
-                rs.getString("lost_date"),
-                rs.getString("status")
-            )
-        );
+    public List<LostItem> findAll(String search, String location, String status) {
+    return jdbcTemplate.query(
+        """
+        SELECT * FROM lost_items
+        WHERE (
+            ? IS NULL OR
+            LOWER(name) LIKE '%' || LOWER(?) || '%' OR
+            LOWER(COALESCE(description, '')) LIKE '%' || LOWER(?) || '%'
+        )
+        AND (
+            ? IS NULL OR
+            LOWER(location) LIKE '%' || LOWER(?) || '%'
+        )
+        AND (
+            ? IS NULL OR
+            UPPER(status) = UPPER(?)
+        )
+        ORDER BY id DESC
+        """,
+        (rs, rowNum) -> new LostItem(
+            rs.getLong("id"),
+            rs.getString("name"),
+            rs.getString("description"),
+            rs.getString("location"),
+            rs.getString("lost_date"),
+            rs.getString("status")
+        ),
+        search, search, search,
+        location, location,
+        status, status
+     );
     }
 }

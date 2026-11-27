@@ -26,7 +26,11 @@ public class LostItemController {
     }
 
     @GetMapping
-    public List<LostItem> findAll() {
-        return lostItemRepository.findAll();
-    }
+     public List<LostItem> findAll(
+        @RequestParam(required = false) String search,
+        @RequestParam(required = false) String location,
+        @RequestParam(required = false) String status) {
+
+    return lostItemRepository.findAll(search, location, status);
+}
 }
