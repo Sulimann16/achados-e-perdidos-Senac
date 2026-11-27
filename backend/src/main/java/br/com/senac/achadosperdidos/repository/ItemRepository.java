@@ -34,17 +34,36 @@ public class ItemRepository {
         return item;
     }
 
-    public List<Item> findAll() {
-        return jdbcTemplate.query(
-            "SELECT * FROM items ORDER BY id DESC",
-            (rs, rowNum) -> new Item(
-                rs.getLong("id"),
-                rs.getString("name"),
-                rs.getString("description"),
-                rs.getString("location"),
-                rs.getString("found_date"),
-                rs.getString("status")
-            )
-        );
-    }
+    public List<Item> findAll(String search, String location, String status) {
+    return jdbcTemplate.query(
+        """
+        SELECT * FROM items
+        WHERE (
+            ? IS NULL OR
+            LOWER(name) LIKE '%' || LOWER(?) || '%' OR
+            LOWER(COALESCE(description, '')) LIKE '%' || LOWER(?) || '%'
+        )
+        AND (
+            ? IS NULL OR
+            LOWER(location) LIKE '%' || LOWER(?) || '%'
+        )
+        AND (
+            ? IS NULL OR
+            UPPER(status) = UPPER(?)
+        )
+        ORDER BY id DESC
+        """,
+        (rs, rowNum) -> new Item(
+            rs.getLong("id"),
+            rs.getString("name"),
+            rs.getString("description"),
+            rs.getString("location"),
+            rs.getString("found_date"),
+            rs.getString("status")
+        ),
+        search, search, search,
+        location, location,
+        status, status
+    );
+}
 }
